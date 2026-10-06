@@ -39,19 +39,21 @@ academic-paper-translator/
 
 ## 安装
 
-在目标工作区根目录执行：
+本仓库使用通用的项目级 Agent Skills 目录 `.agents/skills/`。在目标工作区根目录执行：
 
 ```bash
-mkdir -p .trae/skills
+mkdir -p .agents/skills
 git clone https://github.com/fu-roc/academic-paper-translator.git \
-  .trae/skills/academic-paper-translator
+  .agents/skills/academic-paper-translator
 ```
 
 更新技能：
 
 ```bash
-git -C .trae/skills/academic-paper-translator pull --ff-only
+git -C .agents/skills/academic-paper-translator pull --ff-only
 ```
+
+让 Agent 扫描 `.agents/skills/` 即可发现该技能。若某个 Agent 只识别自己的专用目录，请按照该产品文档配置技能搜索路径，或从其专用目录创建指向 `.agents/skills/academic-paper-translator` 的符号链接。不要维护多份彼此独立的技能副本。
 
 ## 使用示例
 
@@ -108,4 +110,3 @@ git -C .trae/skills/academic-paper-translator pull --ff-only
 3. 模板和说明文档是否同步更新
 4. 是否误包含论文正文、临时路径、凭据或一次性任务数据
 5. HTML 模板、目录锚点和 `ui.js` 是否仍可通过校验
-
